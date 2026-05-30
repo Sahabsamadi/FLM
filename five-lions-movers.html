@@ -1,0 +1,2713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Five Lions Movers — Move Kigali, smarter.</title>
+<meta name="description" content="Five Lions Movers Group LTD — Kigali's premium moto-taxi service. Verified riders, fixed fares, GPS tracking, 24/7 across the city of a thousand hills." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #FAFAF7;
+    --bg-card: #FFFFFF;
+    --bg-soft: #F0EFE9;
+    --bg-deep: #0B1F14;
+    --ink: #0A0A0A;
+    --ink-2: #1F1F1F;
+    --ink-soft: #4A4A47;
+    --muted: #8B8A82;
+    --line: #E5E3DD;
+    --line-strong: #C8C5BB;
+    --green: #0E5C32;
+    --green-bright: #00A551;
+    --green-pale: #D4EDD9;
+    --warm: #F4A018;
+    --warm-deep: #C77F0E;
+    --logo-gold: #C9A047;
+    --navy: #0E1B2D;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 16px rgba(10,10,10,0.06);
+    --shadow-lg: 0 24px 60px -20px rgba(10,10,10,0.18);
+    --shadow-xl: 0 40px 80px -30px rgba(10,10,10,0.22);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--green-bright); color: white; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  img, svg { display: block; }
+
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+  /* ---------- UTILITY BAR ---------- */
+  .util {
+    background: var(--ink);
+    color: rgba(255,255,255,0.78);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 8px 0;
+  }
+  .util-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+  .util-inner > div {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  .util-inner span.dot { color: var(--green-bright); }
+  .util a:hover { color: white; }
+
+  /* ---------- NAV ---------- */
+  nav.main {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250, 250, 247, 0.88);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  /* ───── TYPOGRAPHIC WORDMARK LOGO ───── */
+  /* Both header and footer use the SAME proportions.
+     Only font-size + gap scale up for the .lg footer variant. */
+  .brand-logo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    line-height: 1;
+    user-select: none;
+  }
+  .bl-main {
+    font-family: 'Cinzel', 'Trajan Pro', serif;
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: 0.12em;
+    /* compensate trailing letter-spacing so text optically centers */
+    padding-left: 0.12em;
+    color: var(--navy);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .bl-o {
+    color: var(--logo-gold);
+  }
+  .bl-line {
+    width: 50%;
+    height: 1px;
+    background: var(--logo-gold);
+    margin: 2px 0;
+    align-self: center;
+  }
+  .bl-tag {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 8px;
+    letter-spacing: 0.50em;
+    padding-left: 0.50em;
+    color: var(--logo-gold);
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* Dark variant (footer / dark backgrounds) */
+  .brand-logo.on-dark .bl-main { color: #F5F1E8; }
+
+  /* Larger size variant — same proportions, just bigger (footer) */
+  .brand-logo.lg { gap: 8px; }
+  .brand-logo.lg .bl-main { font-size: 32px; }
+  .brand-logo.lg .bl-line { margin: 4px 0; }
+  .brand-logo.lg .bl-tag { font-size: 12px; }
+  .nav-links {
+    display: flex; gap: 36px; align-items: center;
+  }
+  .nav-links a {
+    font-size: 14px; font-weight: 500;
+    color: var(--ink-soft);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-actions { display: flex; gap: 10px; align-items: center; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.18s ease;
+    cursor: pointer; white-space: nowrap;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: white;
+  }
+  .btn-primary:hover {
+    background: var(--green);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px -8px rgba(14, 92, 50, 0.5);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line-strong);
+  }
+  .btn-secondary:hover { border-color: var(--ink); background: white; }
+  .btn-green {
+    background: var(--green);
+    color: white;
+  }
+  .btn-green:hover {
+    background: var(--green-bright);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px -8px rgba(0, 165, 81, 0.6);
+  }
+  .btn-lg { padding: 16px 28px; font-size: 15px; border-radius: 12px; }
+  .btn .icon { transition: transform 0.2s; }
+  .btn:hover .icon { transform: translateX(3px); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 60px 0 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(0, 165, 81, 0.06), transparent 60%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: -150px; left: -120px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(244, 160, 24, 0.05), transparent 60%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 460px;
+    gap: 64px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-text { padding-top: 20px; }
+  .hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 14px 7px 7px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-sm);
+    font-weight: 500;
+  }
+  .hero-pill .badge {
+    background: var(--green-pale);
+    color: var(--green);
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  h1.hero-h {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 600;
+    font-size: clamp(40px, 5.2vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin-bottom: 24px;
+    max-width: 580px;
+    font-variation-settings: "opsz" 64;
+  }
+  h1.hero-h .green {
+    color: var(--green);
+    font-style: italic;
+    font-variation-settings: "opsz" 64, "wdth" 105;
+  }
+  h1.hero-h .underlined {
+    position: relative;
+    display: inline-block;
+  }
+  h1.hero-h .underlined::after {
+    content: "";
+    position: absolute;
+    left: 2%; right: 2%; bottom: -4px;
+    height: 6px;
+    background: var(--green-bright);
+    border-radius: 3px;
+    opacity: 0.85;
+  }
+  .hero-lead {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin-bottom: 32px;
+  }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 40px; }
+  .hero-cta .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-cta .meta::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--green-bright);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(0,165,81,0.18);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(0,165,81,0.18); }
+    50% { box-shadow: 0 0 0 8px rgba(0,165,81,0.05); }
+  }
+
+  .hero-trust {
+    display: flex; gap: 36px; flex-wrap: wrap;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .trust-item .n {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    font-variation-settings: "opsz" 32;
+  }
+  .trust-item .l {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    font-weight: 500;
+  }
+
+  /* ---------- HERO BOOKING FORM ---------- */
+  .hero-form-area {
+    position: relative;
+  }
+  .hero-form-area::before {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    background: linear-gradient(135deg, rgba(0,165,81,0.08), rgba(244,160,24,0.04) 60%, transparent);
+    border-radius: 28px;
+    filter: blur(20px);
+    z-index: 0;
+  }
+  .booking-form {
+    position: relative;
+    z-index: 1;
+    background: white;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: var(--shadow-xl);
+  }
+  .bf-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .bf-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 24;
+  }
+  .bf-sub {
+    font-size: 12px;
+    color: var(--green);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .bf-sub::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--green-bright);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(0,165,81,0.2);
+    animation: pulse 2s infinite;
+  }
+  .bf-foot {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .bf-foot-i { color: var(--green); margin-right: 4px; }
+
+  /* ---------- PHONE MOCKUP ---------- */
+  .phone-area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .phone-area::before {
+    content: "";
+    position: absolute;
+    width: 460px; height: 460px;
+    background: linear-gradient(135deg, rgba(0,165,81,0.15), rgba(244,160,24,0.08) 60%, transparent);
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: 0;
+  }
+  .phone {
+    position: relative;
+    width: 320px;
+    height: 640px;
+    background: var(--ink);
+    border-radius: 44px;
+    padding: 14px;
+    box-shadow:
+      0 0 0 2px rgba(255,255,255,0.04),
+      var(--shadow-xl),
+      inset 0 0 0 1px rgba(255,255,255,0.05);
+    z-index: 1;
+  }
+  .phone::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; height: 28px;
+    background: var(--ink);
+    border-radius: 0 0 18px 18px;
+    z-index: 4;
+  }
+  .phone-screen {
+    background: var(--bg);
+    border-radius: 32px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .phone-statusbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 26px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .phone-statusbar .sb-icons {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .phone-statusbar .sb-icons svg { width: 14px; height: 14px; }
+
+  .map-area {
+    flex: 1;
+    background: #E8E5DC;
+    position: relative;
+    overflow: hidden;
+  }
+  .map-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+  }
+  .map-route {
+    position: absolute;
+    top: 30%; left: 20%;
+    width: 60%;
+    height: 35%;
+  }
+  .pin {
+    position: absolute;
+    width: 32px; height: 32px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    display: grid;
+    place-items: center;
+  }
+  .pin-pickup {
+    top: 32%; left: 22%;
+    background: var(--ink);
+  }
+  .pin-pickup::after {
+    content: "";
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: white;
+  }
+  .pin-drop {
+    top: 56%; left: 70%;
+    background: var(--green-bright);
+    transform: rotate(-45deg) translate(0,0);
+  }
+  .pin-drop::after {
+    content: "";
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: white;
+  }
+  .moto-pin {
+    position: absolute;
+    top: 44%; left: 48%;
+    width: 38px; height: 38px;
+    background: var(--warm);
+    border-radius: 50%;
+    box-shadow: 0 8px 18px rgba(244,160,24,0.45), 0 0 0 4px rgba(244,160,24,0.18);
+    display: grid;
+    place-items: center;
+    animation: motoPulse 2.5s ease-in-out infinite;
+  }
+  .moto-pin svg { width: 22px; height: 22px; color: var(--ink); }
+  @keyframes motoPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); box-shadow: 0 8px 22px rgba(244,160,24,0.55), 0 0 0 8px rgba(244,160,24,0.08); }
+  }
+
+  .phone-card {
+    background: white;
+    border-radius: 22px 22px 0 0;
+    padding: 22px 22px 28px;
+    box-shadow: 0 -10px 30px -10px rgba(0,0,0,0.15);
+    position: relative;
+  }
+  .phone-card .grabber {
+    width: 36px; height: 4px;
+    background: var(--line-strong);
+    border-radius: 999px;
+    margin: -8px auto 14px;
+  }
+  .phone-card .eta {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .phone-card .eta-time {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 14px;
+    font-variation-settings: "opsz" 32;
+  }
+  .phone-card .eta-time span {
+    font-size: 16px;
+    color: var(--muted);
+    font-weight: 500;
+    margin-left: 4px;
+  }
+  .rider-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    background: var(--bg-soft);
+    border-radius: 14px;
+    margin-bottom: 14px;
+  }
+  .rider-avatar {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--green), var(--green-bright));
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .rider-info { flex: 1; min-width: 0; }
+  .rider-info .n {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .rider-info .p {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+  .rider-rating {
+    background: white;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .rider-rating::before {
+    content: "★";
+    color: var(--warm);
+    font-size: 10px;
+  }
+  .fare-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+  .fare-row .fl {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .fare-row .fa {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  /* Floating notification card next to phone */
+  .float-card {
+    position: absolute;
+    background: white;
+    padding: 14px 16px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 2;
+    border: 1px solid var(--line);
+  }
+  .float-card .fc-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .float-card .fc-text strong {
+    display: block;
+    font-size: 13px;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .float-card .fc-text span {
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .float-card-1 {
+    top: 60px; left: -20px;
+    animation: floatY 4s ease-in-out infinite;
+  }
+  .float-card-1 .fc-icon { background: var(--green-pale); color: var(--green); }
+  .float-card-2 {
+    bottom: 80px; right: -30px;
+    animation: floatY 4s ease-in-out infinite 1.5s;
+  }
+  .float-card-2 .fc-icon { background: rgba(244,160,24,0.18); color: var(--warm-deep); }
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* ---------- LOGOS / PRESS BAR ---------- */
+  .marquee-bar {
+    background: var(--ink);
+    color: rgba(255,255,255,0.6);
+    padding: 16px 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 64px;
+    white-space: nowrap;
+    animation: marqueeScroll 38s linear infinite;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .marquee-track span {
+    display: inline-flex; align-items: center; gap: 18px;
+  }
+  .marquee-track span::after {
+    content: "◆"; color: var(--green-bright); font-size: 9px;
+  }
+  @keyframes marqueeScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ---------- SECTION ---------- */
+  section { padding: 110px 0; position: relative; }
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: var(--green-pale);
+    color: var(--green);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 20px;
+  }
+  .section-tag::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--green-bright);
+    border-radius: 50%;
+  }
+  h2.section-h {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 600;
+    font-size: clamp(32px, 4.2vw, 48px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 18px;
+    max-width: 600px;
+    font-variation-settings: "opsz" 48;
+  }
+  h2.section-h em {
+    color: var(--green);
+    font-style: italic;
+  }
+  .section-sub {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 580px;
+    line-height: 1.55;
+  }
+  .section-head {
+    margin-bottom: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .service {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px 24px 26px;
+    transition: all 0.3s cubic-bezier(.2,.8,.2,1);
+    position: relative;
+    overflow: hidden;
+  }
+  .service:hover {
+    transform: translateY(-4px);
+    border-color: var(--ink);
+    box-shadow: var(--shadow-lg);
+  }
+  .service .s-icon {
+    width: 44px; height: 44px;
+    background: var(--bg-soft);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    color: var(--ink);
+    margin-bottom: 24px;
+    transition: all 0.3s;
+  }
+  .service:hover .s-icon {
+    background: var(--green);
+    color: white;
+  }
+  .service .s-icon svg { width: 22px; height: 22px; }
+  .service h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 24;
+  }
+  .service p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+  .service .s-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .s-price .pf {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .s-price .pa {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .how-section { background: var(--bg-soft); }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    position: relative;
+  }
+  .step {
+    position: relative;
+  }
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    background: var(--ink);
+    color: white;
+    border-radius: 50%;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .step h4 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 24;
+  }
+  .step p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .step-line {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    width: calc(100% + 32px);
+    height: 1px;
+    background: linear-gradient(90deg, var(--line-strong) 0%, var(--line-strong) 50%, transparent 50%);
+    background-size: 8px 1px;
+    background-repeat: repeat-x;
+    z-index: -1;
+  }
+  .step:last-child .step-line { display: none; }
+
+  /* ---------- ZONES ---------- */
+  .zones-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .zones-text {
+    position: sticky;
+    top: 100px;
+  }
+  .zones-text h2.section-h { margin-bottom: 20px; }
+  .zones-text p {
+    color: var(--ink-soft);
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+  .zones-map {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: var(--shadow-md);
+  }
+  .zones-map svg {
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+  }
+  .zones-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .zone-row {
+    background: var(--bg-card);
+    padding: 16px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .zone-row:hover { background: var(--bg-soft); }
+  .zone-row .zn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .zone-row .zn .swatch {
+    width: 10px; height: 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .zone-row .zp {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  /* ---------- BOOK ---------- */
+  .book-section {
+    background: var(--bg-deep);
+    color: white;
+    border-radius: 28px;
+    margin: 0 32px 110px;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .book-section::before {
+    content: "";
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0, 165, 81, 0.18), transparent 60%);
+    pointer-events: none;
+  }
+  .book-section::after {
+    content: "";
+    position: absolute;
+    bottom: -150px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(244, 160, 24, 0.10), transparent 60%);
+    pointer-events: none;
+  }
+  .book-section .wrap { position: relative; z-index: 2; }
+  .book-section .section-tag {
+    background: rgba(0, 165, 81, 0.18);
+    color: var(--green-bright);
+  }
+  .book-section h2.section-h { color: white; }
+  .book-section h2.section-h em { color: var(--green-bright); }
+  .book-section .section-sub { color: rgba(255,255,255,0.7); }
+
+  .book-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: start;
+    margin-top: 56px;
+  }
+  .booking-form {
+    background: white;
+    color: var(--ink);
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: var(--shadow-xl);
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .field input, .field select {
+    background: var(--bg);
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--ink);
+    transition: all 0.18s;
+    width: 100%;
+  }
+  .field input:focus, .field select:focus {
+    outline: none;
+    border-color: var(--green);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(14, 92, 50, 0.08);
+  }
+  .field input::placeholder { color: var(--muted); }
+
+  .route-summary {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: linear-gradient(135deg, #E8F5EC, #F4FAF6);
+    border: 1px solid rgba(14, 92, 50, 0.18);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    animation: rsFadeIn 0.4s cubic-bezier(.2,.8,.2,1);
+  }
+  .route-summary.visible { display: flex; }
+  .route-summary.unrecognized {
+    background: linear-gradient(135deg, #FFF3E0, #FFFAF2);
+    border-color: rgba(244, 160, 24, 0.3);
+  }
+  @keyframes rsFadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .rs-route {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+    flex-wrap: wrap;
+  }
+  .rs-arrow {
+    color: var(--green);
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .rs-meta {
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  .route-summary.unrecognized .rs-meta { color: var(--warm-deep); }
+  .rs-fare-wrap { text-align: right; flex-shrink: 0; }
+  .rs-fare-amount {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    font-variation-settings: "opsz" 24;
+  }
+  .rs-fare-label {
+    font-size: 10px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+
+  /* ---------- FARE ADJUST ---------- */
+  .fare-adjust {
+    display: none;
+    margin-bottom: 18px;
+    background: linear-gradient(180deg, #FAFAF7 0%, white 100%);
+    border: 1.5px solid var(--green);
+    border-radius: 14px;
+    padding: 18px;
+    position: relative;
+    box-shadow: 0 6px 20px -12px rgba(14, 92, 50, 0.25);
+  }
+  .fare-adjust.visible { display: block; animation: rsFadeIn 0.4s cubic-bezier(.2,.8,.2,1); }
+  .fa-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .fa-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .fa-hint {
+    font-size: 11px;
+    color: var(--green);
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .fa-hint.tip { color: var(--warm-deep); }
+  .fa-hint.lower { color: var(--ink-soft); }
+  .fa-stepper {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    justify-content: center;
+  }
+  .fa-btn {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: white;
+    display: grid;
+    place-items: center;
+    transition: all 0.15s;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .fa-btn:hover:not(:disabled) {
+    background: var(--green);
+    transform: scale(1.08);
+  }
+  .fa-btn:active:not(:disabled) {
+    transform: scale(0.96);
+  }
+  .fa-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+  .fa-btn svg { width: 18px; height: 18px; }
+  .fa-display {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 6px;
+    min-width: 0;
+  }
+  .fa-input {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--ink);
+    background: transparent;
+    border: none;
+    outline: none;
+    text-align: center;
+    width: 140px;
+    max-width: 100%;
+    padding: 4px 0;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    font-variation-settings: "opsz" 48;
+  }
+  .fa-input::-webkit-outer-spin-button,
+  .fa-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .fa-input:focus {
+    outline: none;
+    color: var(--green);
+  }
+  .fa-currency {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+  .fa-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+  }
+  .fa-chip {
+    padding: 7px 13px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: white;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .fa-chip:hover {
+    border-color: var(--green);
+    color: var(--green);
+  }
+  .fa-chip.active {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+  }
+
+  .service-pick {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .pick.disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+  .pick .pp.placeholder {
+    color: var(--muted);
+    font-style: italic;
+  }
+  .pick {
+    background: var(--bg);
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.18s;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .pick:hover { border-color: var(--ink); }
+  .pick.active {
+    border-color: var(--green);
+    background: var(--green-pale);
+  }
+  .pick .pn {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .pick .pp {
+    font-size: 11px;
+    color: var(--ink-soft);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .pick.active .pp { color: var(--green); }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--ink);
+    color: white;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .submit-btn:hover {
+    background: var(--green);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px -10px rgba(14, 92, 50, 0.5);
+  }
+
+  .book-side h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 28px;
+    color: white;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    font-variation-settings: "opsz" 32;
+  }
+  .feature {
+    display: flex;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .feature:last-child { border-bottom: none; }
+  .feature .f-icon {
+    width: 42px; height: 42px;
+    background: rgba(0,165,81,0.18);
+    color: var(--green-bright);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .feature .f-icon svg { width: 20px; height: 20px; }
+  .feature .f-text strong {
+    display: block;
+    font-size: 15px;
+    color: white;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .feature .f-text span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+
+  /* Booking confirm */
+  .booking-confirm {
+    display: none;
+    background: white;
+    color: var(--ink);
+    border-radius: 20px;
+    padding: 40px 36px;
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+  }
+  .booking-confirm.visible { display: block; animation: fadeUp 0.5s ease; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .confirm-check {
+    width: 64px; height: 64px;
+    background: var(--green-bright);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 12px 24px -8px rgba(0,165,81,0.45);
+  }
+  .confirm-check svg { color: white; width: 28px; height: 28px; }
+  .booking-confirm h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 32;
+  }
+  .booking-confirm > p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 26px;
+  }
+  .confirm-detail {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    margin-bottom: 24px;
+  }
+  .confirm-detail > div {
+    background: var(--bg);
+    padding: 16px 10px;
+  }
+  .confirm-detail .lab {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .confirm-detail .val {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .confirm-rebook {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--green);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .confirm-rebook:hover { color: var(--ink); }
+
+  /* ---------- SAFETY ---------- */
+  .safety-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .safety {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 30px 28px;
+    transition: all 0.3s;
+  }
+  .safety:hover {
+    border-color: var(--green);
+    box-shadow: var(--shadow-md);
+  }
+  .safety .si {
+    width: 44px; height: 44px;
+    background: var(--green-pale);
+    color: var(--green);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 22px;
+  }
+  .safety .si svg { width: 22px; height: 22px; }
+  .safety h4 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 24;
+  }
+  .safety p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* ---------- DRIVERS ---------- */
+  .driver-section { padding-top: 0; }
+  .driver-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 70px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 64px;
+    align-items: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+  .driver-card::before {
+    content: "";
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(244,160,24,0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .driver-card > div { position: relative; z-index: 1; }
+  .driver-card .d-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(244,160,24,0.18);
+    color: var(--warm-deep);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 20px;
+  }
+  .driver-card h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 18px;
+    font-variation-settings: "opsz" 60;
+  }
+  .driver-card h3 em {
+    color: var(--warm-deep);
+    font-style: italic;
+  }
+  .driver-card > div > p {
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 28px;
+    max-width: 460px;
+  }
+  .driver-perks {
+    display: grid;
+    gap: 14px;
+  }
+  .perk {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 16px 18px;
+    background: var(--bg-soft);
+    border-radius: 14px;
+  }
+  .perk .check {
+    width: 24px; height: 24px;
+    background: var(--green-bright);
+    color: white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .perk .check svg { width: 12px; height: 12px; }
+  .perk strong {
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .perk span {
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    padding: 80px 0 32px;
+    margin-top: 80px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 56px;
+    margin-bottom: 56px;
+  }
+  .footer-brand p {
+    font-size: 14px;
+    margin-top: 22px;
+    line-height: 1.6;
+    max-width: 340px;
+    color: rgba(255,255,255,0.55);
+  }
+  .footer-grid h5 {
+    font-size: 12px;
+    color: var(--green-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 22px;
+  }
+  .footer-grid ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-grid li { font-size: 14px; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+  .footer-grid a:hover { color: white; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-bottom p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .socials { display: flex; gap: 10px; }
+  .socials a {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: rgba(255,255,255,0.7);
+    transition: all 0.2s;
+  }
+  .socials a:hover {
+    background: var(--green-bright);
+    color: white;
+    transform: translateY(-2px);
+  }
+  .socials svg { width: 16px; height: 16px; }
+  .flag-strip {
+    display: flex;
+    height: 4px;
+    margin-top: 28px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .flag-strip > div { flex: 1; }
+
+  /* ---------- RESPONSIVE ---------- */
+
+  /* Tablet & narrow desktop (~600 - 1080px): single-column hero, comfortable form */
+  @media (max-width: 1080px) {
+    .hero { padding: 50px 0 70px; }
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .hero-text { padding-top: 0; }
+    .hero-form-area { width: 100%; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .step-line { display: none; }
+    .zones-layout { grid-template-columns: 1fr; gap: 40px; }
+    .zones-text { position: static; }
+    .driver-card { grid-template-columns: 1fr; gap: 40px; padding: 48px; }
+    .safety-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .nav-links { display: none; }
+    .util-inner > div:first-child { display: none; }
+    section { padding: 70px 0; }
+    h1.hero-h { max-width: 100%; }
+  }
+
+  /* Mobile (≤ 600px) */
+  @media (max-width: 600px) {
+    .wrap { padding: 0 20px; }
+    .hero { padding: 32px 0 50px; }
+    .hero-grid { gap: 36px; }
+    .hero-pill { font-size: 12px; padding: 6px 12px 6px 6px; margin-bottom: 22px; }
+    .hero-pill .badge { font-size: 10px; padding: 2px 8px; }
+    .hero-lead { font-size: 16px; margin-bottom: 24px; }
+    .hero-cta { gap: 8px; margin-bottom: 28px; }
+    .hero-cta .meta { display: none; }
+    .btn-lg { padding: 12px 20px; font-size: 14px; }
+    .hero-trust { gap: 18px 28px; padding-top: 20px; }
+    .trust-item .n { font-size: 22px; }
+    .trust-item .l { font-size: 11px; }
+
+    .booking-form { padding: 22px; border-radius: 16px; }
+    .form-row, .service-pick { grid-template-columns: 1fr; }
+    .bf-head { margin-bottom: 18px; padding-bottom: 14px; }
+    .bf-title { font-size: 19px; }
+
+    /* Route summary stacked */
+    .route-summary { flex-direction: column; align-items: flex-start; gap: 10px; padding: 12px 14px; }
+    .rs-fare-wrap { text-align: left; }
+    .rs-fare-amount { font-size: 20px; }
+
+    /* Fare adjuster — tighter for small screens */
+    .fare-adjust { padding: 14px; }
+    .fa-stepper { gap: 10px; }
+    .fa-btn { width: 38px; height: 38px; }
+    .fa-input { width: 110px; font-size: 28px; }
+    .fa-currency { font-size: 14px; }
+    .fa-chips { gap: 5px; }
+    .fa-chip { padding: 6px 10px; font-size: 11px; }
+
+    .driver-card { padding: 28px; gap: 28px; border-radius: 20px; }
+    .services-grid, .safety-grid, .zones-list { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .confirm-detail { grid-template-columns: 1fr; }
+    .nav-actions .btn-secondary { display: none; }
+    .nav-inner { padding: 14px 0; }
+    section { padding: 56px 0; }
+
+    /* Smaller footer logo on mobile */
+    .brand-logo.lg .bl-main { font-size: 26px; }
+    .brand-logo.lg .bl-tag { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ UTILITY BAR ============ -->
+<div class="util">
+  <div class="wrap util-inner">
+    <div>
+      <span><span class="dot">●</span> 24/7 across Kigali</span>
+      <span>Licensed by RURA</span>
+      <span>Mobile Money accepted</span>
+    </div>
+    <div>
+      <a href="tel:+250788000000">+250 788 000 000</a>
+      <span>EN · FR · KIN</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAV ============ -->
+<nav class="main">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <div class="brand-logo">
+        <div class="bl-main">FIVE LI<span class="bl-o">O</span>NS</div>
+        <div class="bl-line"></div>
+        <div class="bl-tag">Movers Group</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#zones">Pricing</a>
+      <a href="#safety">Safety</a>
+      <a href="#drivers">For riders</a>
+    </div>
+    <div class="nav-actions">
+      <a href="tel:+250788000000" class="btn btn-secondary">Call us</a>
+      <a href="#book" class="btn btn-primary">Book a ride <span class="icon">→</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-pill">
+          <span class="badge">New</span>
+          Book online or by SMS — fixed fares, verified riders
+        </div>
+        <h1 class="hero-h">
+          Move Kigali,<br/>
+          the <span class="green underlined">smarter</span> way.
+        </h1>
+        <p class="hero-lead">
+          Five Lions is Rwanda's premium moto-taxi network. Verified riders, fixed fares, two helmets per ride, live GPS — booked in seconds and arriving in minutes, anywhere across the city of a thousand hills.
+        </p>
+        <div class="hero-cta">
+          <a href="#how" class="btn btn-secondary btn-lg">How it works</a>
+          <a href="#zones" class="btn btn-secondary btn-lg">See pricing</a>
+          <span class="meta">Live · 12 riders nearby</span>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <div class="n">340+</div>
+            <div class="l">Verified riders</div>
+          </div>
+          <div class="trust-item">
+            <div class="n">12k</div>
+            <div class="l">Trips per month</div>
+          </div>
+          <div class="trust-item">
+            <div class="n">4.9★</div>
+            <div class="l">Rider rating</div>
+          </div>
+          <div class="trust-item">
+            <div class="n">&lt;5 min</div>
+            <div class="l">Avg. pickup</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-form-area" id="book">
+        <form class="booking-form" id="bookingForm">
+          <div class="bf-head">
+            <div class="bf-title">Book a ride</div>
+            <div class="bf-sub">Live · 12 riders nearby</div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label>Pickup</label>
+              <input type="text" id="pickup" list="locations" placeholder="e.g. Kigali Heights" required />
+            </div>
+            <div class="field">
+              <label>Destination</label>
+              <input type="text" id="dest" list="locations" placeholder="e.g. Kimironko Market" required />
+            </div>
+          </div>
+
+          <datalist id="locations">
+            <option value="Kigali Heights"></option>
+            <option value="Kigali Convention Centre"></option>
+            <option value="Kigali International Airport (KGL)"></option>
+            <option value="Kigali City Tower"></option>
+            <option value="Kigali Marriott"></option>
+            <option value="Kigali Serena"></option>
+            <option value="Hotel des Mille Collines"></option>
+            <option value="Radisson Blu"></option>
+            <option value="Kimironko Market"></option>
+            <option value="Nyamirambo"></option>
+            <option value="Nyabugogo Bus Terminal"></option>
+            <option value="Kacyiru"></option>
+            <option value="Kimihurura"></option>
+            <option value="Gisimenti"></option>
+            <option value="Remera"></option>
+            <option value="Amahoro Stadium"></option>
+            <option value="Kibagabaga"></option>
+            <option value="Kibagabaga Hospital"></option>
+            <option value="Kicukiro"></option>
+            <option value="Niboye"></option>
+            <option value="Kanombe"></option>
+            <option value="Sonatube"></option>
+            <option value="Gikondo"></option>
+            <option value="Gisozi"></option>
+            <option value="Kagugu"></option>
+            <option value="Genocide Memorial"></option>
+            <option value="CHUK Hospital"></option>
+            <option value="Kigali Business Centre"></option>
+            <option value="MTN Centre"></option>
+            <option value="Mumena"></option>
+            <option value="Biryogo"></option>
+            <option value="Kimisagara"></option>
+          </datalist>
+
+          <div class="form-row">
+            <div class="field">
+              <label>When</label>
+              <select id="when">
+                <option value="now">Right now</option>
+                <option value="15">In 15 minutes</option>
+                <option value="30">In 30 minutes</option>
+                <option value="60">In 1 hour</option>
+                <option value="schedule">Schedule for later</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Phone</label>
+              <input type="tel" id="phone" placeholder="+250 78 ___ ____" required pattern="[+0-9 ]{8,}" />
+            </div>
+          </div>
+
+          <div class="route-summary" id="routeSummary">
+            <div class="rs-info">
+              <div class="rs-route">
+                <span class="rs-from" id="rsFrom">—</span>
+                <span class="rs-arrow">→</span>
+                <span class="rs-to" id="rsTo">—</span>
+              </div>
+              <div class="rs-meta" id="rsMeta">Fixed fare · no surge · no haggling</div>
+            </div>
+            <div class="rs-fare-wrap">
+              <div class="rs-fare-amount" id="rsFareAmount">—</div>
+              <div class="rs-fare-label" id="rsFareLabel">Standard fare</div>
+            </div>
+          </div>
+
+          <div class="fare-adjust" id="fareAdjust">
+            <div class="fa-head">
+              <span class="fa-label">Your offer</span>
+              <span class="fa-hint" id="faHint">Match recommended</span>
+            </div>
+            <div class="fa-stepper">
+              <button type="button" class="fa-btn" data-step="-200" aria-label="Decrease fare">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <div class="fa-display">
+                <input type="text" inputmode="numeric" id="fareInput" class="fa-input" value="—" />
+                <span class="fa-currency">RWF</span>
+              </div>
+              <button type="button" class="fa-btn" data-step="200" aria-label="Increase fare">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg>
+              </button>
+            </div>
+            <div class="fa-chips">
+              <button type="button" class="fa-chip active" data-action="reset">Recommended</button>
+              <button type="button" class="fa-chip" data-action="tip" data-amount="200">+200 tip</button>
+              <button type="button" class="fa-chip" data-action="tip" data-amount="500">+500 tip</button>
+              <button type="button" class="fa-chip" data-action="tip" data-amount="1000">+1,000 tip</button>
+            </div>
+          </div>
+
+          <div class="field" style="margin-bottom: 18px;">
+            <label>Service</label>
+            <div class="service-pick">
+              <button type="button" class="pick active" data-service="standard" data-fare="1200">
+                <span class="pn">Standard Moto</span>
+                <span class="pp">Enter route</span>
+              </button>
+              <button type="button" class="pick" data-service="express" data-fare="1800">
+                <span class="pn">Express Priority</span>
+                <span class="pp">Enter route</span>
+              </button>
+              <button type="button" class="pick" data-service="package" data-fare="1500">
+                <span class="pn">Package Delivery</span>
+                <span class="pp">Enter route</span>
+              </button>
+              <button type="button" class="pick" data-service="airport" data-fare="5000">
+                <span class="pn">Airport (KGL)</span>
+                <span class="pp">Enter route</span>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            Confirm booking
+            <span style="font-size:18px;">→</span>
+          </button>
+
+          <div class="bf-foot">
+            <span class="bf-foot-i">🛡</span> Verified riders · GPS tracking · Two helmets per ride
+          </div>
+        </form>
+
+        <div class="booking-confirm" id="confirm">
+          <div class="confirm-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Your rider is on the way</h3>
+          <p>We've sent an SMS to your phone with rider name, plate, and a live tracking link.</p>
+          <div class="confirm-detail">
+            <div>
+              <div class="lab">Reference</div>
+              <div class="val" id="ref">FLM-—</div>
+            </div>
+            <div>
+              <div class="lab">Fare</div>
+              <div class="val" id="fare">— RWF</div>
+            </div>
+            <div>
+              <div class="lab">ETA</div>
+              <div class="val" id="eta">— min</div>
+            </div>
+          </div>
+          <button class="confirm-rebook" onclick="resetBooking()">Book another ride →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span>Verified by RURA</span>
+    <span>MTN Mobile Money</span>
+    <span>Airtel Money</span>
+    <span>24/7 Dispatch</span>
+    <span>Visa &amp; Mastercard</span>
+    <span>GPS Tracked</span>
+    <span>Two Helmets · Always</span>
+    <span>Verified by RURA</span>
+    <span>MTN Mobile Money</span>
+    <span>Airtel Money</span>
+    <span>24/7 Dispatch</span>
+    <span>Visa &amp; Mastercard</span>
+    <span>GPS Tracked</span>
+    <span>Two Helmets · Always</span>
+  </div>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">Services</div>
+        <h2 class="section-h">Built for every <em>trip in Kigali.</em></h2>
+        <p class="section-sub">Standard commute, rush-hour priority, package delivery or an early flight to KGL — pick the service, we handle the rest.</p>
+      </div>
+    </div>
+
+    <div class="services-grid">
+      <div class="service">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6 L19 6 L17 10 L15 17 H9 L7 13 L4 13 L8 10 L11 9 L13 6"/></svg>
+        </div>
+        <h3>Standard Moto</h3>
+        <p>Everyday rides across Kigali. One passenger, fitted helmet, fixed fare. The fastest way to move.</p>
+        <div class="s-price"><span class="pf">From</span><span class="pa">800 RWF</span></div>
+      </div>
+
+      <div class="service">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>Express Priority</h3>
+        <p>Top-rated riders dispatched first. Guaranteed pickup under five minutes inside the city ring.</p>
+        <div class="s-price"><span class="pf">From</span><span class="pa">1,500 RWF</span></div>
+      </div>
+
+      <div class="service">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <h3>Package &amp; Parcel</h3>
+        <p>Documents, food, gifts — sent across town with tracked rider, signed handover, and delivery alert.</p>
+        <div class="s-price"><span class="pf">From</span><span class="pa">1,200 RWF</span></div>
+      </div>
+
+      <div class="service">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+        </div>
+        <h3>Airport Transfer</h3>
+        <p>Direct moto runs to and from Kigali International. Light luggage friendly. Pre-bookable for early flights.</p>
+        <div class="s-price"><span class="pf">From</span><span class="pa">4,500 RWF</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how-section" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">How it works</div>
+        <h2 class="section-h">Four taps. <em>One ride.</em></h2>
+        <p class="section-sub">Booking with Five Lions takes less than a minute, whether you're heading to a meeting or running across town for groceries.</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-line"></div>
+        <h4>Tell us where</h4>
+        <p>Enter pickup and destination. We show your fixed fare in RWF up front.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-line"></div>
+        <h4>Pick a service</h4>
+        <p>Standard, Express, package, or airport. Choose what fits the trip.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-line"></div>
+        <h4>Match a rider</h4>
+        <p>The closest verified rider. Name, photo, plate, live ETA.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Helmet on, ride out</h4>
+        <p>Strap up, share your trip, pay by MoMo, card, or cash.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ZONES ============ -->
+<section id="zones">
+  <div class="wrap">
+    <div class="zones-layout">
+      <div class="zones-text">
+        <div class="section-tag">Pricing</div>
+        <h2 class="section-h">Kigali, by <em>zone.</em></h2>
+        <p>We operate across all five sectors of Kigali with transparent, fixed fares. No surge pricing, no haggling — the same fare at noon as at midnight.</p>
+        <a href="#book" class="btn btn-primary btn-lg">See your fare <span class="icon">→</span></a>
+      </div>
+
+      <div class="zones-map">
+        <!-- Stylized Kigali sectors map -->
+        <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background -->
+          <rect width="400" height="320" fill="#F5F4EE" rx="12"/>
+          <!-- Stylized hills/contour lines -->
+          <g stroke="rgba(0,0,0,0.04)" stroke-width="0.8" fill="none">
+            <path d="M 0 60 Q 100 50 200 65 T 400 50"/>
+            <path d="M 0 100 Q 100 90 200 105 T 400 90"/>
+            <path d="M 0 240 Q 100 230 200 245 T 400 230"/>
+          </g>
+          <!-- Sectors as overlapping shapes -->
+          <g>
+            <!-- Nyarugenge / Centre -->
+            <path d="M 130 130 Q 150 120 180 130 Q 210 145 200 175 Q 175 195 145 185 Q 120 170 130 130 Z" fill="#0E5C32" opacity="0.65"/>
+            <text x="165" y="165" font-family="Inter" font-size="10" font-weight="700" fill="white" text-anchor="middle">Nyarugenge</text>
+            <!-- Kacyiru -->
+            <path d="M 195 80 Q 230 70 255 90 Q 270 115 250 130 Q 215 135 200 115 Q 190 95 195 80 Z" fill="#00A551" opacity="0.6"/>
+            <text x="225" y="108" font-family="Inter" font-size="10" font-weight="700" fill="white" text-anchor="middle">Kacyiru</text>
+            <!-- Remera -->
+            <path d="M 270 130 Q 305 125 320 150 Q 325 180 295 190 Q 265 185 260 160 Q 260 140 270 130 Z" fill="#0E5C32" opacity="0.5"/>
+            <text x="290" y="162" font-family="Inter" font-size="10" font-weight="700" fill="white" text-anchor="middle">Remera</text>
+            <!-- Kicukiro -->
+            <path d="M 195 200 Q 235 195 260 215 Q 265 245 235 255 Q 200 250 185 230 Q 180 210 195 200 Z" fill="#00A551" opacity="0.5"/>
+            <text x="220" y="230" font-family="Inter" font-size="10" font-weight="700" fill="white" text-anchor="middle">Kicukiro</text>
+            <!-- Nyamirambo -->
+            <path d="M 60 165 Q 95 155 120 175 Q 130 200 110 215 Q 75 220 55 200 Q 50 175 60 165 Z" fill="#0E5C32" opacity="0.55"/>
+            <text x="88" y="195" font-family="Inter" font-size="10" font-weight="700" fill="white" text-anchor="middle">Nyamirambo</text>
+            <!-- Airport KGL -->
+            <circle cx="335" cy="240" r="14" fill="#F4A018"/>
+            <text x="335" y="244" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="white" text-anchor="middle">KGL</text>
+            <!-- Roads connecting -->
+            <g stroke="rgba(10,10,10,0.15)" stroke-width="1.5" fill="none" stroke-dasharray="3 3">
+              <path d="M 165 165 L 225 108"/>
+              <path d="M 225 108 L 290 162"/>
+              <path d="M 290 162 L 220 230"/>
+              <path d="M 220 230 L 88 195"/>
+              <path d="M 88 195 L 165 165"/>
+              <path d="M 220 230 L 335 240"/>
+            </g>
+          </g>
+          <!-- Compass -->
+          <g transform="translate(360 35)">
+            <circle r="14" fill="white" stroke="rgba(0,0,0,0.1)"/>
+            <path d="M 0 -8 L 3 0 L 0 4 L -3 0 Z" fill="#0E5C32"/>
+            <text x="0" y="-16" font-family="JetBrains Mono" font-size="7" font-weight="700" fill="#4A4A47" text-anchor="middle">N</text>
+          </g>
+        </svg>
+
+        <div class="zones-list">
+          <div class="zone-row"><span class="zn"><span class="swatch" style="background:#0E5C32;"></span>Nyarugenge / Centre</span><span class="zp">800 RWF</span></div>
+          <div class="zone-row"><span class="zn"><span class="swatch" style="background:#00A551;"></span>Kacyiru / Kimihurura</span><span class="zp">800 RWF</span></div>
+          <div class="zone-row"><span class="zn"><span class="swatch" style="background:#0E5C32; opacity:0.6;"></span>Remera / Gisimenti</span><span class="zp">1,000 RWF</span></div>
+          <div class="zone-row"><span class="zn"><span class="swatch" style="background:#00A551; opacity:0.6;"></span>Kicukiro / Niboye</span><span class="zp">1,000 RWF</span></div>
+          <div class="zone-row"><span class="zn"><span class="swatch" style="background:#0E5C32; opacity:0.7;"></span>Nyamirambo / Mumena</span><span class="zp">800 RWF</span></div>
+          <div class="zone-row"><span class="zn"><span class="swatch" style="background:#0E5C32; opacity:0.5;"></span>Kimironko / Kibagabaga</span><span class="zp">1,000 RWF</span></div>
+          <div class="zone-row"><span class="zn"><span class="swatch" style="background:#00A551; opacity:0.5;"></span>Gisozi / Kagugu</span><span class="zp">1,000 RWF</span></div>
+          <div class="zone-row"><span class="zn"><span class="swatch" style="background:#F4A018;"></span>Kigali Int'l Airport</span><span class="zp">4,500–6,000</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SAFETY ============ -->
+<section id="safety">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">Safety</div>
+        <h2 class="section-h">Safety isn't a feature.<br/>It's the <em>foundation.</em></h2>
+        <p class="section-sub">Every Five Lions ride is built on a safety code our riders carry as a card and live by every shift.</p>
+      </div>
+    </div>
+
+    <div class="safety-grid">
+      <div class="safety">
+        <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/></svg></div>
+        <h4>Two helmets, every ride</h4>
+        <p>One for the rider, one for you — sanitized between trips, replaced every twelve months.</p>
+      </div>
+      <div class="safety">
+        <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h4>Live GPS oversight</h4>
+        <p>Every bike streams its position to our Kigali dispatch hub in real time.</p>
+      </div>
+      <div class="safety">
+        <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>Verified riders</h4>
+        <p>Identity, RURA permit, motorcycle papers and clean record check, renewed every six months.</p>
+      </div>
+      <div class="safety">
+        <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h4>One-tap SOS</h4>
+        <p>A one-tap emergency button alerts our dispatch and your trusted contacts simultaneously.</p>
+      </div>
+      <div class="safety">
+        <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <h4>Trained rider corps</h4>
+        <p>Mandatory defensive-riding course, annual recertification, and quarterly bike inspections.</p>
+      </div>
+      <div class="safety">
+        <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <h4>24/7 human dispatch</h4>
+        <p>Real people on the line in Kinyarwanda, English, and French — for every ride, every shift.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DRIVERS ============ -->
+<section id="drivers" class="driver-section">
+  <div class="wrap">
+    <div class="driver-card">
+      <div>
+        <div class="d-tag">For riders</div>
+        <h3>Ride with the <em>Lions.</em></h3>
+        <p>We're recruiting Kigali's best moto riders for the Five Lions corps. Steady earnings, daily MoMo payouts, helmets and vest provided, mechanical support included. Ride with skill, ride with pride.</p>
+        <a href="#" class="btn btn-primary btn-lg" onclick="event.preventDefault(); alert('Recruitment opens at our office in Kacyiru. Bring your RURA permit, ID, and motorcycle papers.');">
+          Apply to ride <span class="icon">→</span>
+        </a>
+      </div>
+      <div class="driver-perks">
+        <div class="perk">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>Daily MoMo payouts</strong><span>Earnings settled every evening — no waiting, no fees.</span></div>
+        </div>
+        <div class="perk">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>Health &amp; accident cover</strong><span>Group insurance and on-the-job protection from day one.</span></div>
+        </div>
+        <div class="perk">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>Free mechanical checks</strong><span>Quarterly tune-ups at our partner workshop in Gikondo.</span></div>
+        </div>
+        <div class="perk">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>Language &amp; safety training</strong><span>Free English, French, and customer-care courses.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand-logo lg on-dark">
+          <div class="bl-main">FIVE LI<span class="bl-o">O</span>NS</div>
+          <div class="bl-line"></div>
+          <div class="bl-tag">Movers Group</div>
+        </div>
+        <p>Five Lions Movers Group LTD is a Rwandan-registered mobility company operating a verified moto-taxi network across all five sectors of Kigali.</p>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#zones">Pricing</a></li>
+          <li><a href="#drivers">Become a rider</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>KG 11 Ave, Kacyiru</li>
+          <li>Kigali, Rwanda</li>
+          <li>+250 788 000 000</li>
+          <li>hello@fivelions.rw</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Hours</h5>
+        <ul>
+          <li>Rides 24 / 7</li>
+          <li>Office Mon–Fri</li>
+          <li>08:00 – 18:00 CAT</li>
+          <li>Saturday by appointment</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 FIVE LIONS MOVERS GROUP LTD · KIGALI, RWANDA · TIN REGISTERED WITH RRA</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+        <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="flag-strip">
+      <div style="background: #1F4A8C;"></div>
+      <div style="background: #FAD201;"></div>
+      <div style="background: #1F8A3A;"></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ═══════════════════════════════════════════════════════════
+  // FIVE LIONS — PRICING ENGINE
+  // Calculates fares between Kigali zones based on pickup/destination.
+  // To extend: add more landmarks to LOCATIONS, or tune FARE_MATRIX.
+  // ═══════════════════════════════════════════════════════════
+
+  // ZONES — short codes mapped to display names
+  const ZONES = {
+    CTR: 'Centre / Nyarugenge',
+    KAC: 'Kacyiru / Kimihurura',
+    REM: 'Remera / Gisimenti',
+    KIM: 'Kimironko / Kibagabaga',
+    NYA: 'Nyamirambo / Mumena',
+    KIC: 'Kicukiro / Niboye',
+    GIS: 'Gisozi / Kagugu',
+    KGL: 'Kigali Int\'l Airport'
+  };
+
+  // LANDMARKS → ZONE  (lowercase keys, partial-match supported)
+  const LOCATIONS = {
+    // ─── CENTRE / NYARUGENGE ───
+    'kigali city tower': 'CTR',
+    'kct': 'CTR',
+    'union trade': 'CTR',
+    'utc': 'CTR',
+    'pension plaza': 'CTR',
+    'centenary house': 'CTR',
+    'chuk': 'CTR',
+    'chuk hospital': 'CTR',
+    'mille collines': 'CTR',
+    'hotel des mille collines': 'CTR',
+    'kigali marriott': 'CTR',
+    'marriott': 'CTR',
+    'serena': 'CTR',
+    'kigali serena': 'CTR',
+    'nyabugogo': 'CTR',
+    'nyabugogo bus': 'CTR',
+    'mu gare': 'CTR',
+    'caplaki': 'CTR',
+    'camp kigali': 'CTR',
+    'centre': 'CTR',
+    'city centre': 'CTR',
+    'town': 'CTR',
+    'downtown': 'CTR',
+    'nyarugenge': 'CTR',
+    'kigali business centre': 'CTR',
+    'kbc': 'CTR',
+    'soras tower': 'CTR',
+    'rwf tower': 'CTR',
+
+    // ─── KACYIRU / KIMIHURURA ───
+    'kacyiru': 'KAC',
+    'kimihurura': 'KAC',
+    'kigali heights': 'KAC',
+    'kigali convention': 'KAC',
+    'convention centre': 'KAC',
+    'kcc': 'KAC',
+    'mtn centre': 'KAC',
+    'mtn rwanda': 'KAC',
+    'radisson': 'KAC',
+    'radisson blu': 'KAC',
+    'parliament': 'KAC',
+    'us embassy': 'KAC',
+    'rdb': 'KAC',
+    'rwanda development board': 'KAC',
+    'ict park': 'KAC',
+    'ministry': 'KAC',
+
+    // ─── REMERA / GISIMENTI ───
+    'remera': 'REM',
+    'gisimenti': 'REM',
+    'amahoro': 'REM',
+    'amahoro stadium': 'REM',
+    'stade': 'REM',
+    'simba': 'REM',
+    'simba supermarket': 'REM',
+    'la bonne adresse': 'REM',
+
+    // ─── KIMIRONKO / KIBAGABAGA ───
+    'kimironko': 'KIM',
+    'kimironko market': 'KIM',
+    'kibagabaga': 'KIM',
+    'kibagabaga hospital': 'KIM',
+
+    // ─── NYAMIRAMBO / MUMENA ───
+    'nyamirambo': 'NYA',
+    'mumena': 'NYA',
+    'biryogo': 'NYA',
+    'kimisagara': 'NYA',
+    'green hills': 'NYA',
+
+    // ─── KICUKIRO / NIBOYE ───
+    'kicukiro': 'KIC',
+    'niboye': 'KIC',
+    'sonatube': 'KIC',
+    'kanombe': 'KIC',
+    'magerwa': 'KIC',
+    'gatenga': 'KIC',
+    'gikondo': 'KIC',
+
+    // ─── GISOZI / KAGUGU ───
+    'gisozi': 'GIS',
+    'kagugu': 'GIS',
+    'genocide memorial': 'GIS',
+    'kigali memorial': 'GIS',
+    'memorial centre': 'GIS',
+
+    // ─── AIRPORT (KGL) ───
+    'airport': 'KGL',
+    'kgl': 'KGL',
+    'kigali international': 'KGL',
+    'kigali int': 'KGL',
+    'kia': 'KGL'
+  };
+
+  // FARE MATRIX (Standard moto, in RWF) — symmetric, half-table
+  const FARE_MATRIX = {
+    CTR: { CTR: 800,  KAC: 1200, REM: 1500, KIM: 2000, NYA: 1200, KIC: 1800, GIS: 1500, KGL: 4500 },
+    KAC: {            KAC: 800,  REM: 1200, KIM: 1500, NYA: 1800, KIC: 2000, GIS: 1500, KGL: 5000 },
+    REM: {                       REM: 800,  KIM: 1200, NYA: 2000, KIC: 1800, GIS: 1800, KGL: 4500 },
+    KIM: {                                  KIM: 800,  NYA: 2500, KIC: 2000, GIS: 1800, KGL: 5500 },
+    NYA: {                                             NYA: 800,  KIC: 1500, GIS: 1800, KGL: 5500 },
+    KIC: {                                                        KIC: 800,  GIS: 2500, KGL: 4000 },
+    GIS: {                                                                   GIS: 800,  KGL: 5500 },
+    KGL: {                                                                              KGL: 0    }
+  };
+
+  // SERVICE MULTIPLIERS
+  const SERVICE_MULT = {
+    standard: 1.00,   // base rate
+    express:  1.40,   // priority dispatch
+    package:  1.15,   // tracked delivery
+    airport:  1.00    // airport already priced in matrix
+  };
+
+  // ───── HELPERS ─────
+  function getBaseFare(z1, z2) {
+    if (FARE_MATRIX[z1] && FARE_MATRIX[z1][z2] !== undefined) return FARE_MATRIX[z1][z2];
+    if (FARE_MATRIX[z2] && FARE_MATRIX[z2][z1] !== undefined) return FARE_MATRIX[z2][z1];
+    return null;
+  }
+
+  function detectZone(text) {
+    if (!text) return null;
+    const lower = text.toLowerCase().trim();
+    if (!lower) return null;
+    // Exact match
+    if (LOCATIONS[lower]) return LOCATIONS[lower];
+    // Substring match — pick the longest matching key for accuracy
+    let bestMatch = null;
+    let bestLen = 0;
+    for (const key in LOCATIONS) {
+      if (lower.includes(key) && key.length > bestLen) {
+        bestMatch = LOCATIONS[key];
+        bestLen = key.length;
+      }
+    }
+    return bestMatch;
+  }
+
+  function calcFare(pickupText, destText, service) {
+    const z1 = detectZone(pickupText);
+    const z2 = detectZone(destText);
+    if (!z1 || !z2) return null;
+    const base = getBaseFare(z1, z2);
+    if (base === null || base === 0) return null;
+    return Math.round(base * (SERVICE_MULT[service] || 1));
+  }
+
+  // ───── STATE ─────
+  const picks = document.querySelectorAll('.pick');
+  let selectedService = 'standard';
+  let recommendedFare = null;   // calculated fare for current route + service
+  let customFare = null;         // what the user actually wants to pay (defaults to recommended)
+
+  // ───── DOM REFS ─────
+  const pickupInput = document.getElementById('pickup');
+  const destInput = document.getElementById('dest');
+  const summary = document.getElementById('routeSummary');
+  const rsFrom = document.getElementById('rsFrom');
+  const rsTo = document.getElementById('rsTo');
+  const rsFareAmount = document.getElementById('rsFareAmount');
+  const rsFareLabel = document.getElementById('rsFareLabel');
+  const rsMeta = document.getElementById('rsMeta');
+
+  const fareAdjust = document.getElementById('fareAdjust');
+  const fareInput = document.getElementById('fareInput');
+  const faHint = document.getElementById('faHint');
+  const faMinusBtn = fareAdjust.querySelector('.fa-btn[data-step="-200"]');
+  const faPlusBtn = fareAdjust.querySelector('.fa-btn[data-step="200"]');
+  const submitBtn = document.querySelector('.submit-btn');
+
+  // ───── FARE FORMATTING ─────
+  function fmt(n) {
+    return n.toLocaleString('en-US');
+  }
+
+  function updateSubmitButton() {
+    if (!submitBtn) return;
+    if (customFare !== null) {
+      submitBtn.innerHTML = 'Confirm booking · ' + fmt(customFare) + ' RWF <span style="font-size:18px;">→</span>';
+    } else {
+      submitBtn.innerHTML = 'Confirm booking <span style="font-size:18px;">→</span>';
+    }
+  }
+
+  // ───── CUSTOM FARE CONTROL ─────
+  function setCustomFare(amount) {
+    if (recommendedFare === null) return;
+    const min = Math.max(500, Math.round(recommendedFare * 0.5));
+    const max = Math.round(recommendedFare * 3);
+    customFare = Math.max(min, Math.min(max, Math.round(amount)));
+
+    fareInput.value = fmt(customFare);
+
+    // Hint label
+    if (customFare === recommendedFare) {
+      faHint.textContent = 'Match recommended';
+      faHint.className = 'fa-hint';
+    } else if (customFare > recommendedFare) {
+      const diff = customFare - recommendedFare;
+      faHint.textContent = '+' + fmt(diff) + ' RWF tip';
+      faHint.className = 'fa-hint tip';
+    } else {
+      const diff = recommendedFare - customFare;
+      faHint.textContent = '−' + fmt(diff) + ' RWF below recommended';
+      faHint.className = 'fa-hint lower';
+    }
+
+    // Active chip
+    fareAdjust.querySelectorAll('.fa-chip').forEach(chip => {
+      chip.classList.remove('active');
+      if (chip.dataset.action === 'reset' && customFare === recommendedFare) {
+        chip.classList.add('active');
+      } else if (chip.dataset.action === 'tip') {
+        const tipAmount = parseInt(chip.dataset.amount, 10);
+        if (customFare === recommendedFare + tipAmount) chip.classList.add('active');
+      }
+    });
+
+    // Disable minus button if at floor
+    faMinusBtn.disabled = customFare <= min;
+    faPlusBtn.disabled = customFare >= max;
+
+    // Reflect in route summary
+    if (rsFareAmount) rsFareAmount.textContent = fmt(customFare) + ' RWF';
+
+    updateSubmitButton();
+  }
+
+  // ───── LIVE FARE UPDATE ─────
+  function refreshFares() {
+    const pickup = pickupInput.value.trim();
+    const dest = destInput.value.trim();
+    const z1 = detectZone(pickup);
+    const z2 = detectZone(dest);
+
+    // Update each service tile with live route price
+    picks.forEach(p => {
+      const service = p.dataset.service;
+      const fare = calcFare(pickup, dest, service);
+      const ppEl = p.querySelector('.pp');
+      if (fare !== null) {
+        ppEl.textContent = fmt(fare) + ' RWF';
+        ppEl.classList.remove('placeholder');
+        p.dataset.fare = fare;
+        p.classList.remove('disabled');
+      } else {
+        ppEl.textContent = pickup && dest ? 'Pick from list' : 'Enter route';
+        ppEl.classList.add('placeholder');
+      }
+    });
+
+    // Compute new recommended fare for the active service
+    const newRecommended = calcFare(pickup, dest, selectedService);
+
+    // Route summary card states
+    if (z1 && z2 && z1 !== z2) {
+      summary.classList.add('visible');
+      summary.classList.remove('unrecognized');
+      rsFrom.textContent = ZONES[z1];
+      rsTo.textContent = ZONES[z2];
+      rsFareLabel.textContent = serviceLabel(selectedService) + ' fare';
+      rsMeta.textContent = 'Recommended fare · adjust below if you wish';
+    } else if (z1 && z2 && z1 === z2) {
+      summary.classList.add('visible');
+      summary.classList.remove('unrecognized');
+      rsFrom.textContent = ZONES[z1];
+      rsTo.textContent = 'Within zone';
+      rsFareLabel.textContent = serviceLabel(selectedService) + ' fare';
+      rsMeta.textContent = 'Within-sector trip · short ride';
+    } else if (pickup && dest && (!z1 || !z2)) {
+      summary.classList.add('visible');
+      summary.classList.add('unrecognized');
+      rsFrom.textContent = z1 ? ZONES[z1] : (pickup || '—');
+      rsTo.textContent = z2 ? ZONES[z2] : (dest || '—');
+      rsFareAmount.textContent = '—';
+      rsFareLabel.textContent = 'Pick from list';
+      rsMeta.textContent = "Couldn't match a Kigali zone — please pick from suggestions";
+    } else {
+      summary.classList.remove('visible');
+      summary.classList.remove('unrecognized');
+    }
+
+    // Fare adjuster — show only when we have a valid fare
+    if (newRecommended !== null) {
+      const wasNull = recommendedFare === null;
+      const recommendedChanged = recommendedFare !== newRecommended;
+      recommendedFare = newRecommended;
+      fareAdjust.classList.add('visible');
+
+      // Reset to recommended whenever route or service changes (or first time)
+      if (wasNull || recommendedChanged) {
+        setCustomFare(newRecommended);
+      } else {
+        // Keep current customFare but refresh hint
+        setCustomFare(customFare);
+      }
+    } else {
+      fareAdjust.classList.remove('visible');
+      recommendedFare = null;
+      customFare = null;
+      fareInput.value = '—';
+      updateSubmitButton();
+    }
+  }
+
+  function serviceLabel(s) {
+    return ({
+      standard: 'Standard',
+      express: 'Express',
+      package: 'Package',
+      airport: 'Airport'
+    })[s] || 'Standard';
+  }
+
+  // Trigger refresh on input
+  pickupInput.addEventListener('input', refreshFares);
+  destInput.addEventListener('input', refreshFares);
+  pickupInput.addEventListener('change', refreshFares);
+  destInput.addEventListener('change', refreshFares);
+
+  // ───── SERVICE PICKER ─────
+  picks.forEach(p => {
+    p.addEventListener('click', () => {
+      picks.forEach(x => x.classList.remove('active'));
+      p.classList.add('active');
+      selectedService = p.dataset.service;
+      refreshFares();
+    });
+  });
+
+  // ───── FARE ADJUST CONTROLS ─────
+  fareAdjust.querySelectorAll('.fa-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (customFare === null || btn.disabled) return;
+      const step = parseInt(btn.dataset.step, 10);
+      setCustomFare(customFare + step);
+    });
+  });
+
+  fareAdjust.querySelectorAll('.fa-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      if (recommendedFare === null) return;
+      const action = chip.dataset.action;
+      if (action === 'reset') {
+        setCustomFare(recommendedFare);
+      } else if (action === 'tip') {
+        const amount = parseInt(chip.dataset.amount, 10);
+        setCustomFare(recommendedFare + amount);
+      }
+    });
+  });
+
+  // Manual input editing
+  fareInput.addEventListener('focus', () => {
+    if (customFare !== null) fareInput.value = String(customFare);
+  });
+  fareInput.addEventListener('input', () => {
+    const cleaned = fareInput.value.replace(/[^0-9]/g, '');
+    if (cleaned) {
+      const num = parseInt(cleaned, 10);
+      customFare = num;
+      updateSubmitButton();
+      // Don't re-render the input (would mess with cursor); only update peripheral UI
+      if (rsFareAmount) rsFareAmount.textContent = fmt(num) + ' RWF';
+      if (recommendedFare !== null) {
+        if (num === recommendedFare) {
+          faHint.textContent = 'Match recommended';
+          faHint.className = 'fa-hint';
+        } else if (num > recommendedFare) {
+          faHint.textContent = '+' + fmt(num - recommendedFare) + ' RWF tip';
+          faHint.className = 'fa-hint tip';
+        } else {
+          faHint.textContent = '−' + fmt(recommendedFare - num) + ' RWF below recommended';
+          faHint.className = 'fa-hint lower';
+        }
+      }
+    }
+  });
+  fareInput.addEventListener('blur', () => {
+    // Snap to bounds and reformat with thousands separator
+    if (customFare !== null) setCustomFare(customFare);
+  });
+  fareInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); fareInput.blur(); }
+  });
+
+  // ───── FORM SUBMIT ─────
+  const form = document.getElementById('bookingForm');
+  const confirmBox = document.getElementById('confirm');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const pickup = pickupInput.value.trim();
+    const dest = destInput.value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    if (!pickup || !dest || !phone) return;
+
+    // Use the customer's offered fare (already validated within bounds)
+    const fare = customFare !== null
+      ? customFare
+      : (calcFare(pickup, dest, selectedService) || parseInt(document.querySelector('.pick.active').dataset.fare, 10));
+
+    // Booking reference
+    const chars = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+    let ref = 'FLM-';
+    for (let i = 0; i < 5; i++) ref += chars[Math.floor(Math.random() * chars.length)];
+
+    // ETA based on service type
+    const etaBase = selectedService === 'express' ? 3 : selectedService === 'airport' ? 8 : 5;
+    const eta = etaBase + Math.floor(Math.random() * 3);
+
+    document.getElementById('ref').textContent = ref;
+    document.getElementById('fare').textContent = fmt(fare) + ' RWF';
+    document.getElementById('eta').textContent = eta + ' min';
+
+    form.style.display = 'none';
+    confirmBox.classList.add('visible');
+    confirmBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  function resetBooking() {
+    confirmBox.classList.remove('visible');
+    form.style.display = 'block';
+    form.reset();
+    picks.forEach(x => x.classList.remove('active'));
+    picks[0].classList.add('active');
+    selectedService = 'standard';
+    recommendedFare = null;
+    customFare = null;
+    refreshFares();
+    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Initialize
+  updateSubmitButton();
+  refreshFares();
+</script>
+
+</body>
+</html>
